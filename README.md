@@ -21,10 +21,10 @@
 
 ```bash
 # Encrypt a file
-python locker.py --encrypt --algo xor+base64 --key "mypassword" --input secret.txt --output secret.enc
+python locker.py --encrypt --algo xor+base64 --key "mypassword" --input "c:\file-path\secret.txt" --output "c:\output-path\secret.lock"
 
 # Decrypt a file
-python locker.py --decrypt --algo xor+base64 --key "mypassword" --input secret.enc --output secret.txt
+python locker.py --decrypt --algo xor+base64 --key "mypassword" --input "c:\encrypted-file-path\secret.lock" --output "c:\output-path\secret.txt"
 ```
 
 ## 📦 Installation
