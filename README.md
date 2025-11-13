@@ -21,16 +21,16 @@
 - ✅ User-friendly interface
 - ✅ Instant file encryption/decryption
 
-**Ya phir command-line version use karo (niche instructions hain)**
+**Or use the command-line version (instructions below)**
 
 ---
 
 ## 📋 Table of Contents
 
-- [Program Kya Karta Hai?](#1-program-kya-karta-hai)
-- [Encryption Kya Hai?](#2-encryption-kya-hai-easy-explanation)
-- [Algorithms Overview](#4-teen-magic-tricks-algorithms-overview)
-- [How to Use](#10-program-kaise-use-kare--commands)
+- [What Does This Program Do?](#1-what-does-this-program-do)
+- [What is Encryption?](#2-what-is-encryption-easy-explanation)
+- [Algorithms Overview](#4-three-magic-tricks-algorithms-overview)
+- [How to Use](#10-how-to-use-the-program--commands)
 - [Installation](#installation)
 - [Quick Start](#quick-start)
 - [Warnings & Safety](#11-warnings--safety-notes)
@@ -40,27 +40,27 @@
 
 ```bash
 # Encrypt a file
-python locker.py --encrypt --algo xor+base64 --key "mypassword" --input "c:\file-path\example.txt" --output "c:\output-path\example.lock"
+python locker.py --encrypt --algo xor+base64 --key "mypassword" --input secret.txt --output secret.enc
 
 # Decrypt a file
-python locker.py --decrypt --algo xor+base64 --key "mypassword" --input "c:\encrypted-file-path\example.lock" --output "c:\output-path\example.txt"
+python locker.py --decrypt --algo xor+base64 --key "mypassword" --input secret.enc --output secret.txt
 ```
 
 ## 📦 Installation
 
 ### Requirements
 
-- Python 3.6 ya usse upar
-- Standard library (koi external dependency nahi)
+- Python 3.6 or higher
+- Standard library only (no external dependencies)
 
 ### Setup
 
 ```bash
-# Repository clone karo
-git clone https://github.com/voldemort9999/file-encryptor.git
+# Clone the repository
+git clone https://github.com/yourusername/file-encryptor.git
 cd file-encryptor
 
-# Test run karo
+# Test run
 python locker.py --help
 ```
 
@@ -76,45 +76,45 @@ python locker.py --help
 
 ---
 
-## 1. PROGRAM KYA KARTA HAI?
+## 1. WHAT DOES THIS PROGRAM DO?
 
 ### 1.1 Encryption (Locking)
 
-* Koi bhi file input lo (photo, PDF, video, text… kuch bhi).
-* Password use karke uske bytes ko scramble kar do.
-* Output ek **locked/encrypted file** hoti hai jo random data jaisi lagti hai.
-* Bina password ke khul hi nahi sakti.
+* Take any file as input (photo, PDF, video, text… anything).
+* Scramble its bytes using a password.
+* Output is a **locked/encrypted file** that looks like random data.
+* Cannot be opened without the correct password.
 
 ### 1.2 Decryption (Unlocking)
 
-* Locked file input lo.
-* Same password lagao.
-* Scrambled bytes wapas original file me convert ho jaate hain — bilkul perfect form me.
+* Take a locked file as input.
+* Apply the same password.
+* Scrambled bytes are converted back to the original file — in perfect form.
 
-**Simple words:**  
-Yeh program tumhari files ko invisible ink jaisa bana deta hai. Password = invisible pen.
+**In simple words:**  
+This program turns your files into invisible ink. Password = the revealing pen.
 
 ---
 
-## 2. ENCRYPTION KYA HAI? (EASY EXPLANATION)
+## 2. WHAT IS ENCRYPTION? (EASY EXPLANATION)
 
 ### 2.1 Secret Code Analogy
 
-Tum aur tumhara friend class me secret notes pass karna chahte ho.  
-Teacher ko confuse rakhne ke liye tum rule banate ho:
+You and your friend want to pass secret notes in class.  
+To confuse the teacher, you create a rule:
 
 **Example:**  
 Original → `MEET ME AFTER SCHOOL`  
-Rule: Har letter ko next wale letter se replace karo  
+Rule: Replace each letter with the next letter  
 Encrypted → `NFFU NF BGUFS TDIPPM`
 
-Sirf rule jaane wale ko hi samajh ayega. Exactly ye hi encryption ka core idea hai.
+Only someone who knows the rule can understand. This is exactly the core idea of encryption.
 
 ---
 
-## 3. COMPUTER FILES BYTES MEIN HOTI HAIN
+## 3. COMPUTER FILES ARE MADE OF BYTES
 
-Computer kisi photo ya document ko "photo" ya "text" ki tarah nahi samajhta, wo **sirf numbers (0–255)** samajhta hai.
+Computers don't understand photos or documents as "photo" or "text" — they only understand **numbers (0–255)**.
 
 * Byte = 1 number (0–255)
 * 'A' → 65
@@ -122,13 +122,13 @@ Computer kisi photo ya document ko "photo" ya "text" ki tarah nahi samajhta, wo 
 * Pixel (white) → 255
 * "Hi" = `[72][105]`
 
-**Every file = millions of bytes ka sequence.**
+**Every file = a sequence of millions of bytes.**
 
 ---
 
-## 4. TEEN MAGIC TRICKS (ALGORITHMS OVERVIEW)
+## 4. THREE MAGIC TRICKS (ALGORITHMS OVERVIEW)
 
-Program 3 algorithms support karta hai:
+The program supports 3 algorithms:
 
 ### 4.1 XOR
 
@@ -139,16 +139,16 @@ Program 3 algorithms support karta hai:
 
 ### 4.2 Base64
 
-* Encryption nahi, sirf encoding.
+* Not encryption, just encoding.
 * Binary → safe text characters.
-* Koi bhi Base64 decode kar sakta hai.
+* Anyone can decode Base64.
 
 ### 4.3 XOR + BASE64
 
-* Pehle XOR se lock
-* Phir Base64 se wrap
+* First lock with XOR
+* Then wrap with Base64
 * Double-layer
-* Learning/practical use ke liye best option
+* Best option for learning/practical use
 
 ---
 
@@ -156,12 +156,12 @@ Program 3 algorithms support karta hai:
 
 ### 5.1 Simple Explanation
 
-XOR ek number-flip trick hai:
+XOR is a number-flip trick:
 
-* Ek byte lo
-* Password ke ek byte ke saath XOR karo
-* Naya number milta hai
-* Same byte ko same key ke saath dobara XOR karoge → original wapas
+* Take a byte
+* XOR it with a byte from the password
+* Get a new number
+* XOR the same byte with the same key again → get back the original
 
 ### 5.2 XOR Rules (Bitwise)
 
@@ -185,7 +185,7 @@ Key: 49
 ### 5.4 File-Level XOR Process
 
 Password `"CAT"` → bytes `[67][65][84]`  
-Yeh bytes **repeat** hote rehte hain file ke har byte ke saath:
+These bytes **repeat** across every byte of the file:
 
 ```
 File bytes:   137, 200, 89, 45, 176, ...
@@ -193,7 +193,7 @@ Key bytes:     67,  65, 84, 67,  65, ...
 Result:       202, 137, 13, 110, 241, ...
 ```
 
-Yeh poora sequence hi encrypted file ban jata hai.
+This entire sequence becomes the encrypted file.
 
 ---
 
@@ -201,17 +201,17 @@ Yeh poora sequence hi encrypted file ban jata hai.
 
 ### 6.1 Simple Explanation
 
-Base64 encryption **nahi** hai.  
-Yeh sirf binary data ko text format me convert karta hai — jisse data safely transfer/store ho sake.
+Base64 is **not** encryption.  
+It just converts binary data to text format — so data can be safely transferred/stored.
 
 **Analogy:**  
-Tum marbles ko post office bhejna chahte ho, par post sirf letters accept karti hai.  
-Base64 tumhare marbles ko letters me convert kar deta hai.
+You want to mail marbles through the post office, but the post only accepts letters.  
+Base64 converts your marbles into letters.
 
 ### 6.2 Technical Breakdown
 
-Base64 3 bytes (24 bits) ko break karke 4 groups banata hai (6 bits each).  
-Har 6-bit group ko ek character me convert kiya jata hai:
+Base64 breaks 3 bytes (24 bits) into 4 groups (6 bits each).  
+Each 6-bit group is converted to a character:
 
 **Allowed characters:**
 
@@ -228,10 +228,10 @@ i → 105 → 01101001
 Combine →
 01001000 01101001
 
-Padding add →
+Add padding →
 01001000 01101001 00000000
 
-Split 6-bit groups →
+Split into 6-bit groups →
 010010 000110 100100 000000
 → 18, 6, 36, 0
 → S G k A
@@ -239,7 +239,7 @@ Split 6-bit groups →
 Final Base64 = SGk=
 ```
 
-`=` padding bataata hai last bytes incomplete the.
+The `=` indicates that the last bytes were incomplete.
 
 ---
 
@@ -247,20 +247,20 @@ Final Base64 = SGk=
 
 ### 7.1 Simple Explanation
 
-2 locks ek saath:
+Two locks together:
 
 1. XOR → real encryption (scramble)
 2. Base64 → packaging (text format)
 
 **Analogy:**
 
-* Pehle diary ko lock karo (XOR)
-* Phir us box ko brown paper se wrap karo (Base64)
+* First lock the diary (XOR)
+* Then wrap the box in brown paper (Base64)
 
 **Unlock:**
 
-* Pehle wrapping hatao (Base64 decode)
-* Phir box kholo (XOR decrypt)
+* First remove the wrapping (Base64 decode)
+* Then unlock the box (XOR decrypt)
 
 ### 7.2 Technical Pipeline
 
@@ -314,16 +314,16 @@ python locker.py --encrypt --algo xor+base64 --key "secret" --input photo.jpg --
 
 #### Step 2: Validation Checks
 
-Program ensure karta hai:
+The program ensures:
 
 * Mode selected (encrypt/decrypt)
-* Algorithm valid
-* Input file exist
-* Password empty nahi
+* Algorithm is valid
+* Input file exists
+* Password is not empty
 
 #### Step 3: Input File Read (Binary Mode)
 
-File bytes read:
+File bytes are read:
 
 ```
 [137, 200, 89, 45, 176, ...]
@@ -337,7 +337,7 @@ File bytes read:
 
 #### Step 5: XOR Encryption
 
-Har file byte ko corresponding key byte se XOR:
+Each file byte is XORed with the corresponding key byte:
 
 ```
 137 ⊕ 115 = 250
@@ -348,16 +348,16 @@ Har file byte ko corresponding key byte se XOR:
 ...
 ```
 
-Key repeat hoti rehti hai.
+The key repeats throughout.
 
 #### Step 6: Base64 Encoding
 
-XOR output ko Base64 me convert karta hai.  
-Size ~33% badhta hai.
+XOR output is converted to Base64.  
+Size increases by ~33%.
 
 #### Step 7: Output Write
 
-Result ko output file me write karta hai:  
+Result is written to the output file:  
 `photo.enc`
 
 ---
@@ -376,11 +376,11 @@ Same checks as encryption.
 
 #### Step 3: Read Base64 File
 
-Encrypted Base64 text read hota hai.
+Encrypted Base64 text is read.
 
 #### Step 4: Base64 Decode
 
-Raw XOR-encrypted bytes milte hain.
+Raw XOR-encrypted bytes are obtained.
 
 #### Step 5: Password → Bytes
 
@@ -399,8 +399,8 @@ Same conversion as before.
 
 #### Step 7: Output Write
 
-Original bytes wapas file me save →  
-`photo.jpg` perfectly restore.
+Original bytes are saved back to the file →  
+`photo.jpg` is perfectly restored.
 
 ---
 
@@ -424,7 +424,7 @@ Base64 → **33%** size increase
 
 ---
 
-## 9. CODE EXPLANATION — HAR PART KA KAAM
+## 9. CODE EXPLANATION — WHAT EACH PART DOES
 
 ### 9.1 Import Section
 
@@ -436,13 +436,13 @@ import os
 from datetime import datetime
 ```
 
-**Kya karta hai?**
+**What it does:**
 
-* **argparse** → command line arguments parse karta hai (e.g., `--encrypt`, `--algo`).
-* **base64** → Base64 encoding/decoding ke tools deta hai.
-* **sys** → program exit aur error handling ke liye.
-* **os** → file existence check, path operations.
-* **datetime** → logs ke liye timestamps.
+* **argparse** → Parses command line arguments (e.g., `--encrypt`, `--algo`).
+* **base64** → Provides Base64 encoding/decoding tools.
+* **sys** → For program exit and error handling.
+* **os** → File existence check, path operations.
+* **datetime** → Timestamps for logs.
 
 ---
 
@@ -454,9 +454,9 @@ def log(message):
     print(f"[{timestamp}] {message}")
 ```
 
-**Kya karta hai?**
+**What it does:**
 
-* Har message ke aage time-label add karta hai.
+* Adds a time-label before each message.
 * Example output: `[2025-11-13 15:30:45] Encrypting using xor`
 
 ---
@@ -479,10 +479,10 @@ def read_file(path):
         sys.exit(1)
 ```
 
-**Kya karta hai?**
+**What it does:**
 
-* File ko **binary mode (rb)** me open karta hai.
-* Bytes read karke return karta hai.
+* Opens file in **binary mode (rb)**.
+* Reads and returns bytes.
 * File missing / permission issue / read error → log + exit.
 
 ---
@@ -502,10 +502,10 @@ def write_file(path, data):
         sys.exit(1)
 ```
 
-**Kya karta hai?**
+**What it does:**
 
-* Output file ko **binary mode (wb)** me open/create karta hai.
-* Bytes write karta hai.
+* Opens/creates output file in **binary mode (wb)**.
+* Writes bytes.
 * Write failure → log + exit.
 
 ---
@@ -527,12 +527,12 @@ def xor_encrypt(data, key):
     return bytes(result)
 ```
 
-**Kya karta hai?**
+**What it does:**
 
-* Empty password use karne se rokta hai.
-* File ke har byte ko key ke corresponding byte se XOR karta hai.
-* Key length se modulo (`i % key_len`) → key repeat hoti rehti hai.
-* Final encrypted bytes return karta hai.
+* Prevents using an empty password.
+* XORs each byte of the file with the corresponding byte of the key.
+* Modulo with key length (`i % key_len`) → key repeats.
+* Returns final encrypted bytes.
 
 ---
 
@@ -543,9 +543,9 @@ def xor_decrypt(data, key):
     return xor_encrypt(data, key)
 ```
 
-**Kya karta hai?**
+**What it does:**
 
-* XOR reversible hota hai → same function decrypt kar deta hai.
+* XOR is reversible → same function decrypts.
 * Double XOR = original.
 
 ---
@@ -561,10 +561,10 @@ def b64_encrypt(data):
         sys.exit(1)
 ```
 
-**Kya karta hai?**
+**What it does:**
 
-* Raw bytes ko Base64 me convert karta hai.
-* Error par program exit.
+* Converts raw bytes to Base64.
+* On error, exits the program.
 
 ---
 
@@ -579,9 +579,9 @@ def b64_decrypt(data):
         sys.exit(1)
 ```
 
-**Kya karta hai?**
+**What it does:**
 
-* Base64 text ko wapas original bytes me convert karta hai.
+* Converts Base64 text back to original bytes.
 * Invalid Base64 → error.
 
 ---
@@ -602,9 +602,9 @@ def encrypt_data(data, key, algo):
         sys.exit(1)
 ```
 
-**Kya karta hai?**
+**What it does:**
 
-User ke chosen algorithm ke basis par correct steps apply karta hai.
+Applies the correct steps based on the user's chosen algorithm.
 
 **Flow:**
 
@@ -630,9 +630,9 @@ def decrypt_data(data, key, algo):
         sys.exit(1)
 ```
 
-**Kya karta hai?**
+**What it does:**
 
-Reverse order me operations apply karta hai:
+Applies operations in reverse order:
 
 * xor → XOR only
 * base64 → decode only
@@ -658,13 +658,13 @@ def validate_args(args):
         sys.exit(1)
 ```
 
-**Kya karta hai?**
+**What it does:**
 
-User ke input me mistakes detect karta hai:
+Detects mistakes in user input:
 
-* Dono modes ek saath? (error)
+* Both modes together? (error)
 * Mode missing? (error)
-* Algo valid nahi? (error)
+* Invalid algorithm? (error)
 
 ---
 
@@ -700,18 +700,18 @@ def main():
     log(f"SUCCESS: Output written to {args.output}")
 ```
 
-**Kya karta hai? Step-by-step:**
+**What it does? Step-by-step:**
 
-1. Argument parser banata hai.
-2. Flags define karta hai.
-3. User input parse karta hai.
-4. Validation call karta hai.
+1. Creates argument parser.
+2. Defines flags.
+3. Parses user input.
+4. Calls validation.
 5. Password → bytes.
-6. Mode decide karta hai.
-7. Input file read.
-8. Encrypt/decrypt process.
-9. Output file write.
-10. Success log.
+6. Decides mode.
+7. Reads input file.
+8. Encrypts/decrypts the data.
+9. Writes to output file.
+10. Logs success.
 
 ---
 
@@ -722,13 +722,13 @@ if __name__ == '__main__':
     main()
 ```
 
-**Kya karta hai?**
+**What it does:**
 
-* Jab tum `python locker.py` run karte ho, program yahin se start hota hai.
+* When you run `python locker.py`, the program starts here.
 
 ---
 
-## 10. PROGRAM KAISE USE KARE — COMMANDS
+## 10. HOW TO USE THE PROGRAM — COMMANDS
 
 ### 10.1 Command Structure
 
@@ -775,7 +775,7 @@ python locker.py --encrypt --algo xor+base64 --key "secret123" --input photo.jpg
 python locker.py --encrypt --algo base64 --key "dummy" --input video.mp4 --output video.b64
 ```
 
-(Note: Base64 me key irrelevant hoti hai.)
+(Note: In Base64, the key is irrelevant.)
 
 ---
 
@@ -805,9 +805,9 @@ python locker.py --decrypt --algo base64 --key "dummy" --input video.b64 --outpu
 
 | Flag | Purpose |
 | --- | --- |
-| `--encrypt` | File lock |
-| `--decrypt` | File unlock |
-| `--algo` | Algorithm select |
+| `--encrypt` | Lock file |
+| `--decrypt` | Unlock file |
+| `--algo` | Select algorithm |
 | `--key` | Password |
 | `--input` | Input file |
 | `--output` | Output file |
@@ -816,7 +816,7 @@ python locker.py --decrypt --algo base64 --key "dummy" --input video.b64 --outpu
 
 ### 10.5 Common Mistakes
 
-#### Mistake 1 — Dono modes ek saath
+#### Mistake 1 — Both modes together
 
 ```bash
 --encrypt --decrypt
@@ -830,19 +830,19 @@ python locker.py --decrypt --algo base64 --key "dummy" --input video.b64 --outpu
 --algo xor+xor
 ```
 
-Allowed sirf:
+Allowed only:
 
 * xor
 * base64
 * xor+base64
 
-#### Mistake 3 — Input file exist nahi karti
+#### Mistake 3 — Input file doesn't exist
 
-File missing → program exit.
+File missing → program exits.
 
-#### Mistake 4 — Wrong password while decrypting
+#### Mistake 4 — Wrong password during decryption
 
-File garbage ban jayegi.
+File becomes garbage.
 
 ---
 
@@ -850,7 +850,7 @@ File garbage ban jayegi.
 
 ### 11.1 Password Recovery Impossible
 
-Password bhool gaye = File permanently locked
+Password forgotten = File permanently locked
 
 No recovery possible.
 
@@ -858,21 +858,21 @@ No recovery possible.
 
 ### 11.2 XOR Limitations
 
-* Beginners ke liye theek
-* Professional security ke liye **NOT SAFE**
+* Good for beginners
+* **NOT SAFE** for professional security
 
 ---
 
 ### 11.3 Base64 Is Not Encryption
 
-* Sirf encoding
-* Koi bhi decode kar sakta hai
+* Just encoding
+* Anyone can decode
 
 ---
 
 ### 11.4 Wrong Password Impact
 
-Decrypt fail ka koi warning nahi — sirf corrupted data milta hai.
+No warning for decrypt failure — just corrupted data.
 
 ---
 
@@ -889,13 +889,13 @@ Base64 → **33%** size increase
 
 Manual editing of encrypted files = guaranteed corruption
 
-Base64 decode fail ho jayega.
+Base64 decode will fail.
 
 ---
 
 ### 11.7 Learning Purpose Only
 
-Real secrets ke liye tools:
+For real secrets, use:
 
 * AES-256
 * VeraCrypt
@@ -906,19 +906,19 @@ Real secrets ke liye tools:
 
 ## 12. FREQUENTLY ASKED QUESTIONS
 
-### 12.1 Windows encrypted files kyun nahi kholta?
+### 12.1 Why won't Windows open encrypted files?
 
-Kyuki file ab random bytes hai, valid format nahi.
+Because the file is now random bytes, not a valid format.
 
 ---
 
-### 12.2 Galat password se kya hota hai?
+### 12.2 What happens with wrong password?
 
 Random junk — corrupted output.
 
 ---
 
-### 12.3 XOR reversible kaise hota hai?
+### 12.3 How is XOR reversible?
 
 Math rule:
 
@@ -928,15 +928,15 @@ A XOR B XOR B = A
 
 ---
 
-### 12.4 Base64 password ke bina decode ho sakta hai?
+### 12.4 Can Base64 be decoded without password?
 
-Haan. Base64 ≠ encryption.
+Yes. Base64 ≠ encryption.
 
 ---
 
-### 12.5 Kaunse file types encrypt ho sakti hain?
+### 12.5 What file types can be encrypted?
 
-Sab:
+All:
 
 * jpg/png
 * mp4/mkv
@@ -945,11 +945,11 @@ Sab:
 * exe
 * mp3/wav
 
-Reason: sab bytes hote hain.
+Reason: everything is bytes.
 
 ---
 
-### 12.6 Kitni security milti hai?
+### 12.6 How much security does it provide?
 
 * XOR → medium
 * Base64 → zero
@@ -958,34 +958,34 @@ Reason: sab bytes hote hain.
 
 ---
 
-### 12.7 Same file ko multiple baar encrypt kar sakta hoon?
+### 12.7 Can I encrypt the same file multiple times?
 
-Haan, par complexity badh jayegi.  
-Decrypt reverse order me karna padega.
-
----
-
-### 12.8 Output file name skip kiya toh?
-
-Program error dega: `--output required`.
+Yes, but complexity increases.  
+Must decrypt in reverse order.
 
 ---
 
-### 12.9 Encrypted file manually edit ki toh?
+### 12.8 What if I skip output filename?
+
+Program error: `--output required`.
+
+---
+
+### 12.9 What if I manually edit the encrypted file?
 
 Corruption guaranteed.
 
 ---
 
-### 12.10 Program fast kitna hai?
+### 12.10 How fast is the program?
 
-Approx:
+Approximately:
 
 * 1 MB → 0.1 sec
 * 10 MB → 1 sec
 * 100 MB → 10 sec
 
-XOR + Base64 dono fast operations hain.
+XOR + Base64 are both fast operations.
 
 ---
 
@@ -993,8 +993,8 @@ XOR + Base64 dono fast operations hain.
 
 ### 13.1 Program Overview
 
-* File ko password se scramble karta hai
-* Wapas original me restore karta hai
+* Scrambles files using a password
+* Restores them to original form
 
 ---
 
@@ -1008,11 +1008,11 @@ XOR + Base64 dono fast operations hain.
 
 ### 13.3 Key Points
 
-* Password bhoolna = file loss
-* Same algorithm + same key hi use karo
+* Forgetting password = file loss
+* Use same algorithm + same key
 * Base64 ≠ encryption
 * Wrong key = junk output
-* Yeh tool **learning & basic protection** ke liye hai
+* This tool is for **learning & basic protection**
 
 ---
 
@@ -1033,38 +1033,38 @@ XOR + Base64 dono fast operations hain.
 #### Problem: "ModuleNotFoundError"
 
 ```bash
-Solution: Python properly install karo (version 3.6+)
+Solution: Install Python properly (version 3.6+)
 ```
 
 #### Problem: "Permission denied"
 
 ```bash
-Solution: File ko administrator/root access se run karo
+Solution: Run the file with administrator/root access
 ```
 
-#### Problem: Decrypted file corrupt hai
+#### Problem: Decrypted file is corrupt
 
 **Possible reasons:**
 
-* Wrong password use kiya
-* Wrong algorithm use kiya
-* Encrypted file manually edit ki gayi thi
-* File incomplete copy hui
+* Used wrong password
+* Used wrong algorithm
+* Encrypted file was manually edited
+* File was incompletely copied
 
-**Solution:** Same password aur algorithm use karo jo encryption me use kiya tha
+**Solution:** Use the same password and algorithm that was used for encryption
 
-#### Problem: File size bahut badh gayi
+#### Problem: File size increased too much
 
 ```
-Base64 algorithm use karne se 33% size increase hota hai.
-XOR-only use karo agar size important hai.
+Using Base64 algorithm increases size by 33%.
+Use XOR-only if size is important.
 ```
 
 ---
 
 ## 15. CONTRIBUTING
 
-Contributions welcome hain! Please follow these steps:
+Contributions are welcome! Please follow these steps:
 
 1. **Fork** the repository
 2. **Create** a feature branch (`git checkout -b feature/AmazingFeature`)
@@ -1074,9 +1074,9 @@ Contributions welcome hain! Please follow these steps:
 
 ### Code Style
 
-- PEP 8 guidelines follow karo
-- Docstrings add karo
-- Comments Hindi/English me acceptable
+- Follow PEP 8 guidelines
+- Add docstrings
+- Comments in English acceptable
 
 ---
 
@@ -1086,7 +1086,8 @@ Contributions welcome hain! Please follow these steps:
 file-encryptor/
 │
 ├── locker.py           # Main encryption/decryption script
-├── README.md           # Complete documentation
+├── README.md           # Complete documentation (Hindi/English mix)
+├── readme01.md         # Complete documentation (Pure English)
 ├── jmhvhjgvc.md       # Additional documentation
 └── examples/           # Example files (optional)
     ├── test.txt
@@ -1135,11 +1136,11 @@ file-encryptor/
 
 ⚠️ **IMPORTANT SECURITY NOTICE** ⚠️
 
-Yeh tool **educational purposes** ke liye banaya gaya hai:
+This tool was created for **educational purposes**:
 
-- ❌ Production environments me use **MAT** karo
-- ❌ Sensitive data (passwords, financial info, personal data) ko is se encrypt **MAT** karo
-- ❌ Professional security ke liye **NOT SUITABLE**
+- ❌ **DO NOT** use in production environments
+- ❌ **DO NOT** encrypt sensitive data (passwords, financial info, personal data) with this
+- ❌ **NOT SUITABLE** for professional security
 
 ### Production-grade alternatives:
 
