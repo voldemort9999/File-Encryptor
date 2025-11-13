@@ -3,8 +3,27 @@
 ![Python](https://img.shields.io/badge/Python-3.6+-blue.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey.svg)
+![Web App](https://img.shields.io/badge/Web_App-Live-brightgreen.svg)
 
 > **Simple, educational file encryption tool using XOR and Base64 algorithms**
+
+---
+
+## 🌐 WEB VERSION AVAILABLE!
+
+**🚀 Try it online without installation:**
+
+👉 **[https://secure-vault.up.railway.app/](https://secure-vault.up.railway.app/)**
+
+- ✅ No installation required
+- ✅ Works directly in browser
+- ✅ Same encryption algorithms
+- ✅ User-friendly interface
+- ✅ Instant file encryption/decryption
+
+**Ya phir command-line version use karo (niche instructions hain)**
+
+---
 
 ## 📋 Table of Contents
 

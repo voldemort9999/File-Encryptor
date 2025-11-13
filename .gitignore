@@ -51,3 +51,7 @@ examples/*.locked
 # OS
 Thumbs.db
 desktop.ini
+
+# Private documentation files
+readme01.md
+jmhvhjgvc.md
