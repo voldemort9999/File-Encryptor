@@ -38,7 +38,7 @@ python locker.py --decrypt --algo xor+base64 --key "mypassword" --input secret.e
 
 ```bash
 # Repository clone karo
-git clone https://github.com/yourusername/file-encryptor.git
+git clone https://github.com/voldemort9999/file-encryptor.git
 cd file-encryptor
 
 # Test run karo
