@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 locker.py - File Encryption and Decryption Utility
-Supports XOR, Base64, and combined XOR+Base64 encryption
+Supports XOR, Base64, and combined XOR+Base64 encryption 
 """
 
 import argparse
