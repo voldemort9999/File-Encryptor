@@ -48,7 +48,7 @@ def write_file(path, data):
         sys.exit(1)
 
 
-def xor_encrypt(data, key):
+def xor_encrypt(data, key):  
     """XOR encrypt/decrypt data"""
     if len(key) == 0:
         log("ERROR: Key cannot be empty")
