@@ -68,7 +68,7 @@ def xor_decrypt(data, key):
     return xor_encrypt(data, key)
 
 
-def b64_encrypt(data):
+def b64_encrypt(data):    
     try:
         return base64.b64encode(data)
     except Exception as e:
