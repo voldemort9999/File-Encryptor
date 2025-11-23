@@ -136,10 +136,10 @@ def validate_args(args):
         sys.exit(1)
 
 
-def main():
+def main():    
     parser = argparse.ArgumentParser(
         description='File Encryption & Decryption Utility'
-    )
+    )       
 
     parser.add_argument('--encrypt', action='store_true', help='Encrypt file')
     parser.add_argument('--decrypt', action='store_true', help='Decrypt file')
