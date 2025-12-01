@@ -13,7 +13,7 @@
 
 **🚀 Try it online without installation:**
 
-👉 **[https://secure-vault.up.railway.app/](https://secure-vault.up.railway.app/)**
+👉 **[https://secure-vault.up.railway.app/](file-encryptor-wedversion-33-production.up.railway.app)**
 
 - ✅ No installation required
 - ✅ Works directly in browser
